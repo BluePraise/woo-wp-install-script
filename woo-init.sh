@@ -37,7 +37,16 @@ if [ -d "$HASWP" ]; then
     echo "${YELLOW}Hello has been uninstalled"
     wp plugin --deactivate uninstall akismet
     echo "${YELLOW}Akismet has been uninstalled"
-    wp theme --deactivate uninstall twentynineteen twentytwenty twentytwentyone
+    # wp theme --deactivate uninstall twentynineteen twentytwenty twentytwentyone
+    # echo "${YELLOW}All the themes have been deactivated and uninstalled, let's get to work!"
+    ## NAME YOUR PROJECT
+    echo "What is the name of your project? This will be your themename too"
+    read projectname
+    echo "Alright. I will make a theme named ${projectname}"
+    ## CD into theme folder and makes the child theme for this project
+    cd ./wp-content/themes && mkdir ${projectname}
+    ## it would be better to just pull in my woo-blanktheme repo and then cd into that
+     
 else
     echo "There is no WordPress installed. I will install it"
     exit 1
