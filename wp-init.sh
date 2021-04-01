@@ -21,23 +21,21 @@ wp_install ()
     wp core install --prompt
 }
 
-# IF WORDPRESS EXISTS (IT CHECKS IT BY SIMPLY CHECKING THE FOLDERS)
-if [ -d "$HASWP" ]; then
-    echo ${DIR} 
+wp_plugin_install () {
     echo "${YELLOW}This folder has WordPress installed. Continuiing with installing plugins and themes..."
     wp plugin install --activate https://github.com/afragen/github-updater/archive/master.zip
     echo "${YELLOW}Github updater has been installed... next..."
     wp plugin --activate install https://github.com/wp-premium/advanced-custom-fields-pro/archive/master.zip
     echo "${YELLOW}ACF Has been installed... next..."
-    wp plugin --activate install woocommerce
-    echo "${YELLOW}Woo has been installed... next, let's start installing Storefront..."
-    wp theme install storefront --activate
-    echo "${YELLOW}Storefront is installed and activated... next, let's start uninstalling some things..."
     wp plugin --deactivate uninstall hello
     echo "${YELLOW}Hello has been uninstalled"
     wp plugin --deactivate uninstall akismet
     echo "${YELLOW}Akismet has been uninstalled"
-    rm -r wp-content/themes/twenty*
+}
+
+# IF WORDPRESS EXISTS (IT CHECKS IT BY SIMPLY CHECKING THE FOLDERS)
+if [ -d "$HASWP" ]; then
+    wp_plugin_install
     # echo "${YELLOW}All the themes have been deactivated and uninstalled, let's get to work!"
     ## NAME YOUR PROJECT
     echo "What is the name of your project? This will be your themename too"
@@ -51,7 +49,12 @@ else
     echo "There is no WordPress installed. I will install it"
     wp core download --path=$1;
     read -p 'name the database:' dbname;
-    wp config create --dbname=$dbname --dbuser=root --dbpass=awoods --dbhost=localhost;
-    wp core install --prompt
-    cd wp-content/themes 
+    #FIXME IT CANNOT CREATE THE DATABASE BECAUSE OF ROOT ISSUES
+    wp config create --dbname=$dbname --dbuser=root --dbpass=root --dbhost=localhost:8889;
+    wp core install --prompt --url=${dbname}.maggie
+    wp_plugin_install
+    echo "What is the name of your project? This will be your themename too"
+    read projectname
+    echo "Alright. I will make a theme named ${projectname}"
+    cd wp-content/themes && mkdir ${projectname}
 fi

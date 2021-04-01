@@ -8,7 +8,7 @@ Do not use composer.json or wp-composer.json just yet. I haven't figured out how
 woo-init.sh however does work. It's a Shell script that fetches the plugins I need to get my workflow going.
 
 ## Where does it fetch these packages from?
-Here: [wpackagist](https://wpackagist.org/) and GitHub.
+Here: WP CLI Plugins and Themes Repository, [wpackagist](https://wpackagist.org/) and GitHub.
 
 ## Recommended usage for woo-init.sh
 #### if you have WordPress installed
@@ -22,9 +22,11 @@ Don't forget to make and map the database.
 - Deactivate and Remove unwanted themes v0.2.0
 - Download my woo blank theme folder into the themes directory v0.3.0
 - init git and do an initial commit. v0.3.0
+- Automatically opens the browser window with the correct URL
 
 ## Release and Fix Log
 - Scripty now makes a theme directory name for me
 - Turned off the theme deactivation. Scripty doesn't understand that yet.
 - Added a dirty remove for twenty* themes
-
+- Not sure how to create db in WP CLI
+- Moved some scripts into functions
