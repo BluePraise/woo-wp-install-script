@@ -1,7 +1,7 @@
 # A WP Theme, Plugin and WooCommerce installer
 I wrote this to speed up my install process locally. I do not like Bedrock or Sage from Roots.io.
 This composer is to rapidly install the necessary plugins and theme for a project that requires WooCommerce.
-Basically it fetches and installs plugins. Because it is based on composer you can also updates the plugins. 
+Basically it fetches and installs plugins and themes. It makes use of WP CLI, Regular Bash Commands and later I will install some git commands too.
 
 ## So what are you looking at?
 Do not use composer.json or wp-composer.json just yet. I haven't figured out how to use that properly.
@@ -17,4 +17,13 @@ It then installs and ACTIVATES github-updater, woocommerce and storefront theme.
 #### if you DO NOT have WordPress installed
 Right now it does nothing but install through WP CLI
 Don't forget to make and map the database. 
+
+## What's still coming...
+- Deactivate and Remove unwanted themes v0.2.0
+- Download my woo blank theme folder into the themes directory v0.3.0
+- init git and do an initial commit. v0.3.0
+
+## Release and Fix Log
+- Scripty now makes a theme directory name for me
+- Turned off the theme deactivation. Scripty doesn't understand that yet.
 
