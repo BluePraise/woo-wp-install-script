@@ -26,4 +26,5 @@ Don't forget to make and map the database.
 ## Release and Fix Log
 - Scripty now makes a theme directory name for me
 - Turned off the theme deactivation. Scripty doesn't understand that yet.
+- Added a dirty remove for twenty* themes
 

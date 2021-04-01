@@ -27,7 +27,7 @@ if [ -d "$HASWP" ]; then
     echo "${YELLOW}This folder has WordPress installed. Continuiing with installing plugins and themes..."
     wp plugin install --activate https://github.com/afragen/github-updater/archive/master.zip
     echo "${YELLOW}Github updater has been installed... next..."
-    wp plugin --activate install advanced-custom-fields
+    wp plugin --activate install https://github.com/wp-premium/advanced-custom-fields-pro/archive/master.zip
     echo "${YELLOW}ACF Has been installed... next..."
     wp plugin --activate install woocommerce
     echo "${YELLOW}Woo has been installed... next, let's start installing Storefront..."
@@ -37,7 +37,7 @@ if [ -d "$HASWP" ]; then
     echo "${YELLOW}Hello has been uninstalled"
     wp plugin --deactivate uninstall akismet
     echo "${YELLOW}Akismet has been uninstalled"
-    # wp theme --deactivate uninstall twentynineteen twentytwenty twentytwentyone
+    rm -r wp-content/themes/twenty*
     # echo "${YELLOW}All the themes have been deactivated and uninstalled, let's get to work!"
     ## NAME YOUR PROJECT
     echo "What is the name of your project? This will be your themename too"
