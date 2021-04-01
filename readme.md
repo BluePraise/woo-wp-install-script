@@ -5,7 +5,7 @@ Basically it fetches and installs plugins. Because it is based on composer you c
 
 ## So what are you looking at?
 Do not use composer.json or wp-composer.json just yet. I haven't figured out how to use that properly.
-woo-init.sh however does work. It's a shall script that fetches the plugins I need to get my workflow going.
+woo-init.sh however does work. It's a Shell script that fetches the plugins I need to get my workflow going.
 
 ## Where does it fetch these packages from?
 Here: [wpackagist](https://wpackagist.org/) and GitHub.
