@@ -23,8 +23,8 @@ wp_install ()
 
 wp_plugin_install () {
     echo "${YELLOW}This folder has WordPress installed. Continuiing with installing plugins and themes..."
-    wp plugin install --activate https://github.com/afragen/github-updater/archive/master.zip
-    echo "${YELLOW}Github updater has been installed... next..."
+    # wp plugin install --activate https://github.com/afragen/github-updater/archive/master.zip
+    # echo "${YELLOW}Github updater has been installed... next..."
     wp plugin --activate install https://github.com/wp-premium/advanced-custom-fields-pro/archive/master.zip
     echo "${YELLOW}ACF Has been installed... next..."
     wp plugin --deactivate uninstall hello
@@ -57,4 +57,12 @@ else
     read projectname
     echo "Alright. I will make a theme named ${projectname}"
     cd wp-content/themes && mkdir ${projectname}
+    cd ${projectname}
+    echo "# gpm" >> README.md
+    git init
+    git commit -m "first commit"
+    git branch -M master
+    git remote add origin https://github.com/BluePraise/${projectname}.git
+    git push -u origin master
+
 fi

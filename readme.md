@@ -20,6 +20,8 @@ Don't forget to make and map the database.
 
 ## What's still coming...
 - Deactivate and Remove unwanted themes v0.2.0
+- Download my wp blank theme folder from github and V0.2.0
+- Rename blank theme folder from to provided project name V0.2.0
 - Download my woo blank theme folder into the themes directory v0.3.0
 - init git and do an initial commit. v0.3.0
 - Automatically opens the browser window with the correct URL
